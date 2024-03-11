@@ -25,6 +25,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setItems([]);
         if (appUrl.searchParams.size === 0) {
           appUrl.searchParams.set("page", 1);
           setSearchParams(appUrl.searchParams);
@@ -37,7 +38,7 @@ function App() {
             new Set(fieldsResponse?.result.filter((item) => item !== null))
           );
           setBrands(brandsData);
-          setProductCount(fieldsResponse.result.length + 1);
+          setProductCount(fieldsResponse?.result.length + 1);
         }
 
         if (appUrl.searchParams.size <= 1) {
@@ -66,7 +67,7 @@ function App() {
                 setIds((prev) => (prev = filterResponse?.result));
               }
 
-              setProductCount(filterResponse.result.length + 1);
+              setProductCount(filterResponse?.result.length + 1);
             }, 500)
           );
         }
@@ -74,6 +75,7 @@ function App() {
         setLoading(false);
       } catch (error) {
         setError(error);
+        setLoading(false);
       }
     };
 
@@ -127,7 +129,15 @@ function App() {
         </Row>
       </Container>
       <Container className={"bodyContainer"}>
-        <Carts items={items} />
+        {items.length > 0 ? (
+          <Carts items={items} />
+        ) : (
+          <div className={"spinner"}>
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </div>
+        )}
       </Container>
       <Container className={"pagination"}>
         <Navigation
