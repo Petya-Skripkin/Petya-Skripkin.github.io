@@ -1,13 +1,85 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.header {
+  max-width: auto;
+  background-color: rgb(188, 188, 188);
+  padding: 20px 0;
+}
+
+.logo {
+  text-align: left;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.menu {
+  text-align: right;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.filter {
+  max-width: auto;
+  background-color: rgb(226, 226, 226);
+  padding: 20px 0;
+}
+
+.cart p {
+  padding-bottom: 0;
+  font-size: 12px;
+}
+
+.bodyContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  --bs-pagination-color: var(--bs-body-color-rgb);
+  --bs-pagination-hover-color: var(--bs-body-color-rgb);
+  --bs-pagination-focus-color: var(--bs-body-color-rgb);
+  --bs-pagination-active-bg: rgb(var(--bs-success-rgb));
+}
+
+.spinner {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
